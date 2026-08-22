@@ -2,15 +2,15 @@
   "id": "./",
   "name": "Kreditplaner",
   "short_name": "Kredite",
-  "description": "Privater Kreditplaner mit Raten, Laufzeiten und Sonderzahlungen.",
+  "description": "Privater Kreditplaner mit Raten, Laufzeiten, Sonderzahlungen und schöner Übersicht.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#111827",
-  "theme_color": "#111827",
+  "background_color": "#101828",
+  "theme_color": "#101828",
   "lang": "de-DE",
   "icons": [
-    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}
   ]
 }
