@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#111827" />
+  <meta name="theme-color" content="#101828" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="application-name" content="Kreditplaner" />
@@ -11,219 +11,215 @@
   <meta name="apple-mobile-web-app-title" content="Kreditplaner" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="icon.svg" />
   <title>Kreditplaner</title>
   <style>
-    :root { color-scheme: light dark; --bg:#f4f5f7; --card:#fff; --text:#16181d; --muted:#6b7280; --line:#e5e7eb; --accent:#2563eb; --danger:#b91c1c; --good:#047857; }
-    @media (prefers-color-scheme: dark) { :root { --bg:#0b0d10; --card:#15181d; --text:#f7f7f8; --muted:#a6abb4; --line:#2b3038; --accent:#60a5fa; --danger:#f87171; --good:#34d399; } }
-    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;min-height:100%;}
-    button,input{font:inherit} button{min-height:46px;border:0;border-radius:14px;padding:0 16px;font-weight:700;cursor:pointer}.primary{background:var(--accent);color:white}.secondary{background:var(--card);color:var(--text);border:1px solid var(--line)}.danger{color:var(--danger);background:transparent;border:1px solid color-mix(in srgb,var(--danger) 35%,transparent)}
-    .app{max-width:640px;margin:0 auto;padding:calc(16px + env(safe-area-inset-top)) 14px calc(30px + env(safe-area-inset-bottom));}
-    header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}.eyebrow{font-size:13px;color:var(--muted);font-weight:700}.title{font-size:28px;line-height:1.05;margin:3px 0 0}.tiny{font-size:12px;color:var(--muted)}
-    .summary{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 18px}.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stat strong{display:block;font-size:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stat span{font-size:12px;color:var(--muted)}
-    .toolbar{display:flex;gap:10px;margin-bottom:14px}.toolbar button{flex:1}.notice{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin:10px 0;color:var(--muted);font-size:13px}
-    .loan{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin:12px 0}.loan-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.loan h2{font-size:18px;margin:0 0 4px;overflow-wrap:anywhere}.balance{font-size:27px;font-weight:800;margin:12px 0 4px}.progress{height:8px;background:var(--line);border-radius:999px;overflow:hidden;margin:12px 0}.progress > div{height:100%;background:var(--accent);width:0}.meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px}.meta div{padding:8px 10px;border-radius:12px;background:color-mix(in srgb,var(--card) 84%,var(--line));}.meta b{display:block;font-size:11px;color:var(--muted);margin-bottom:3px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.actions button{font-size:14px;padding:0 10px}.empty{text-align:center;padding:40px 18px;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:20px}
-    dialog{border:0;border-radius:22px;padding:0;width:min(94vw,560px);background:var(--card);color:var(--text);box-shadow:0 30px 70px rgba(0,0,0,.35)} dialog::backdrop{background:rgba(0,0,0,.55)} .dialog-body{padding:18px}.dialog-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:12px}.dialog-head h3{margin:0}.x{width:44px;padding:0;background:transparent;color:var(--text)}
-    form{display:grid;gap:12px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.field input{width:100%;min-height:48px;border:1px solid var(--line);border-radius:13px;padding:10px 12px;background:var(--bg);color:var(--text);font-size:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.form-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}.help{font-size:12px;color:var(--muted);line-height:1.4}.history{max-height:50vh;overflow:auto;border-top:1px solid var(--line);margin-top:10px}.hist{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.hist .kind{font-weight:700}.hist .date{color:var(--muted)}.green{color:var(--good)}
+    :root {
+      color-scheme: light dark;
+      --bg:#eef2ff; --bg2:#f8fafc; --card:rgba(255,255,255,.92); --card2:#fff;
+      --text:#101828; --muted:#667085; --line:rgba(148,163,184,.22);
+      --accent:#4f46e5; --accent2:#7c3aed; --accentSoft:rgba(79,70,229,.12);
+      --good:#0f9f6e; --goodSoft:rgba(15,159,110,.14); --danger:#d92d20;
+      --shadow:0 18px 45px rgba(15,23,42,.08); --heroShadow:0 26px 80px rgba(79,70,229,.22);
+    }
+    @media (prefers-color-scheme: dark){
+      :root {
+        --bg:#08111f; --bg2:#0f1728; --card:rgba(17,24,39,.92); --card2:#111827;
+        --text:#f8fafc; --muted:#98a2b3; --line:rgba(255,255,255,.08);
+        --accent:#818cf8; --accent2:#a78bfa; --accentSoft:rgba(129,140,248,.15);
+        --good:#34d399; --goodSoft:rgba(52,211,153,.14); --danger:#f97066;
+        --shadow:0 18px 45px rgba(0,0,0,.28); --heroShadow:0 26px 80px rgba(129,140,248,.18);
+      }
+    }
+    *{box-sizing:border-box} html,body{margin:0;min-height:100%}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at top left, rgba(124,58,237,.18), transparent 35%),radial-gradient(circle at top right, rgba(79,70,229,.16), transparent 38%),linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+    button,input{font:inherit} button{cursor:pointer}
+    .app{max-width:760px;margin:0 auto;padding:calc(18px + env(safe-area-inset-top)) 16px calc(34px + env(safe-area-inset-bottom))}
     .desktop-block{display:none}
-    @media (min-width: 901px){ .app{display:none}.desktop-block{display:flex;min-height:100vh;align-items:center;justify-content:center;padding:24px;text-align:center}.desktop-block > div{max-width:460px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}.desktop-block h1{margin-top:0} }
+    @media (min-width:901px){.app{display:none}.desktop-block{display:flex;min-height:100vh;align-items:center;justify-content:center;padding:24px;text-align:center}.desktop-block>div{max-width:460px;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:28px;box-shadow:var(--shadow)}}
+    .hero{position:relative;overflow:hidden;border-radius:28px;padding:22px 18px 18px;background:linear-gradient(135deg,rgba(79,70,229,.98),rgba(124,58,237,.94));color:#fff;box-shadow:var(--heroShadow)}
+    .hero::after{content:"";position:absolute;inset:auto -40px -60px auto;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.12)}
+    .hero-top,.section-head,.focus-row,.loan-top,.loan-balance,.progress-caption,.dialog-head{display:flex;justify-content:space-between;gap:12px}
+    .hero-top,.section-head,.dialog-head{align-items:flex-start}
+    .eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.82;font-weight:700;margin-bottom:6px}
+    .title{font-size:30px;line-height:1.03;font-weight:800;margin:0}.hero-date{font-size:12px;opacity:.82;text-align:right;white-space:nowrap}
+    .hero-sub{margin:10px 0 0;font-size:14px;line-height:1.45;color:rgba(255,255,255,.9);max-width:92%;position:relative;z-index:1}
+    .hero-stats,.overview-grid,.toolbar,.loan-grid,.actions,.row,.form-actions,.segmented{display:grid;gap:10px}
+    .hero-stats,.overview-grid,.toolbar,.loan-grid,.row,.form-actions,.segmented{grid-template-columns:1fr 1fr}
+    .hero-stats{margin-top:18px;position:relative;z-index:1}
+    .hero-stat{border-radius:18px;padding:14px;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18)}
+    .hero-stat span{display:block;font-size:12px;opacity:.85}.hero-stat strong{display:block;font-size:22px;margin-top:4px}
+    .segmented{margin:16px 0}.segmented button,.primary,.secondary,.danger,.actions button{min-height:48px;border-radius:16px;border:1px solid transparent;padding:0 16px;font-weight:700}
+    .segmented button{background:rgba(255,255,255,.55);color:var(--text);border-color:var(--line);box-shadow:var(--shadow)}
+    .primary{color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 14px 30px rgba(79,70,229,.24)}
+    .secondary,.actions button{background:var(--card);color:var(--text);border-color:var(--line);box-shadow:var(--shadow)}
+    .danger{color:var(--danger);background:transparent;border-color:color-mix(in srgb,var(--danger) 35%, transparent)}
+    .section,.loan{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);backdrop-filter:blur(14px)}
+    .section{padding:16px;margin-bottom:14px}.section-head h2{margin:0;font-size:18px;line-height:1.2}.section-note,.loan-sub,.tiny,.help,.metric small{font-size:12px;color:var(--muted)}
+    .overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.metric{min-width:0;border-radius:18px;padding:14px;background:linear-gradient(180deg,color-mix(in srgb,var(--card2) 94%, transparent),color-mix(in srgb,var(--accentSoft) 18%, var(--card2)));border:1px solid var(--line)}
+    .metric label,.focus-card .label,.loan-info label{display:block;color:var(--muted)}
+    .metric label,.focus-card .label{font-size:12px;margin-bottom:6px}.metric strong{display:block;font-size:21px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .focus-card{margin-top:12px;border-radius:22px;padding:16px;background:linear-gradient(135deg,color-mix(in srgb,var(--accentSoft) 40%,var(--card2)),color-mix(in srgb,var(--goodSoft) 20%,var(--card2)));border:1px solid var(--line)}
+    .focus-main strong{display:block;font-size:24px;line-height:1.1}.focus-main p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.4}
+    .badge,.chip{display:inline-flex;align-items:center;padding:8px 11px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid var(--line);white-space:nowrap}
+    .badge{background:rgba(255,255,255,.72);color:var(--text)} .badge.good{background:var(--goodSoft);color:var(--good);border-color:color-mix(in srgb,var(--good) 20%, transparent)}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chip{background:color-mix(in srgb,var(--accentSoft) 55%, var(--card2));color:var(--text);padding:7px 10px}
+    .progress-wrap{margin-top:14px}.progress-line{height:12px;border-radius:999px;background:color-mix(in srgb,var(--line) 75%, transparent);overflow:hidden}.progress-line>div{height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width .25s ease}
+    .progress-caption{margin-top:8px;font-size:12px;color:var(--muted)}
+    .notice{margin-top:14px;padding:12px 14px;border-radius:18px;font-size:13px;line-height:1.45;color:var(--muted);background:color-mix(in srgb,var(--card) 82%, var(--accentSoft));border:1px solid var(--line)}
+    .loan-stack{display:grid;gap:12px}.loan{padding:16px}.loan-top{align-items:flex-start;margin-bottom:10px}.loan-title-wrap h3{margin:0;font-size:19px;line-height:1.2;overflow-wrap:anywhere}.loan-sub{margin-top:5px;font-size:13px}
+    .loan-balance{margin:14px 0 0;align-items:end}.loan-balance strong{display:block;font-size:29px;line-height:1.02;margin-bottom:4px}
+    .loan-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:14px}.loan-info{background:color-mix(in srgb,var(--card2) 86%, var(--accentSoft));border:1px solid var(--line);border-radius:16px;padding:12px;min-width:0}.loan-info label{font-size:11px;margin-bottom:5px;text-transform:uppercase;letter-spacing:.03em}.loan-info strong{display:block;font-size:15px;line-height:1.2;overflow-wrap:anywhere}
+    .actions{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:14px}.actions button{font-size:13px;padding:0 10px;min-height:44px}.actions .primary{border-color:transparent}
+    .empty{text-align:center;padding:34px 18px;border-radius:22px;border:1px dashed var(--line);color:var(--muted);background:color-mix(in srgb,var(--card) 78%,var(--accentSoft))}
+    dialog{border:0;border-radius:24px;padding:0;width:min(94vw,560px);background:var(--card2);color:var(--text);box-shadow:0 34px 90px rgba(0,0,0,.34)} dialog::backdrop{background:rgba(0,0,0,.55)} .dialog-body{padding:18px}.dialog-head h3{margin:0}.x{width:44px;min-height:44px;border:0;border-radius:14px;background:transparent;color:var(--text)}
+    form{display:grid;gap:12px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.field input{width:100%;min-height:50px;border-radius:14px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg2) 72%, var(--card2));color:var(--text);padding:10px 12px;font-size:16px}
+    .history{max-height:50vh;overflow:auto;border-top:1px solid var(--line);margin-top:10px}.hist{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}.kind{font-weight:700}.date{color:var(--muted);margin-top:4px}.green{color:var(--good)}
+    @media (max-width:430px){.hero-sub{max-width:100%}.actions,.hero-stats,.overview-grid,.toolbar,.loan-grid,.row,.form-actions,.segmented{grid-template-columns:1fr}.focus-row,.loan-balance{flex-direction:column;align-items:flex-start}.hero-date{text-align:left}}
   </style>
 </head>
 <body>
   <div class="desktop-block"><div><h1>Handy-App</h1><p>Dieser Kreditplaner ist absichtlich nur für schmale Displays freigeschaltet. Öffne ihn auf deinem Smartphone.</p></div></div>
-
-  <main class="app" id="app">
-    <header>
-      <div><div class="eyebrow">Privat · nur auf diesem Gerät</div><h1 class="title">Meine Kredite</h1></div>
-      <div class="tiny" id="today"></div>
-    </header>
-
-    <section class="summary" aria-label="Übersicht">
-      <div class="stat"><strong id="totalBalance">0,00 €</strong><span>Restschuld gesamt</span></div>
-      <div class="stat"><strong id="totalMonthly">0,00 €</strong><span>Raten pro Monat</span></div>
+  <main class="app">
+    <section class="hero">
+      <div class="hero-top">
+        <div><div class="eyebrow">Privat · nur auf diesem Gerät</div><h1 class="title">Meine Kredite</h1></div>
+        <div class="hero-date" id="today"></div>
+      </div>
+      <p class="hero-sub">Behalte Restschuld, Monatsraten und Sonderzahlungen in einer ruhigen, übersichtlichen Handy-App im Blick.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span>Restschuld gesamt</span><strong id="heroTotalBalance">0,00 €</strong></div>
+        <div class="hero-stat"><span>Schuldenfrei ca.</span><strong id="heroDebtFree">—</strong></div>
+      </div>
     </section>
 
-    <div class="toolbar">
-      <button class="primary" id="addLoan">+ Kredit</button>
-      <button class="secondary" id="exportBtn">Sicherung</button>
+    <div class="segmented">
+      <button type="button" data-scroll="overviewSection">Übersicht</button>
+      <button type="button" data-scroll="loanSection">Kredite</button>
     </div>
-    <div class="notice" id="syncNotice">Beim Öffnen prüft die App automatisch, welche Monatsraten fällig waren, und zieht sie genau einmal von der Restschuld ab.</div>
-    <section id="loanList" aria-live="polite"></section>
+
+    <section class="section" id="overviewSection">
+      <div class="section-head">
+        <div><h2>Übersicht</h2><div class="section-note">Dein komprimierter Gesamtüberblick</div></div>
+        <span class="badge good" id="overviewBadge">Alles im Blick</span>
+      </div>
+      <div class="overview-grid">
+        <div class="metric"><label>Restschuld gesamt</label><strong id="totalBalance">0,00 €</strong><small id="overallProgressText">0 % getilgt</small></div>
+        <div class="metric"><label>Monatsraten gesamt</label><strong id="totalMonthly">0,00 €</strong><small id="activeLoansText">0 aktive Kredite</small></div>
+        <div class="metric"><label>Nächste Rate</label><strong id="nextDueText">—</strong><small id="nextDueLoan">Kein Kredit fällig</small></div>
+        <div class="metric"><label>Geplantes Ende</label><strong id="finalEndText">—</strong><small id="totalPaidText">0,00 € bereits getilgt</small></div>
+      </div>
+      <div class="focus-card">
+        <span class="label">Gesamtfortschritt</span>
+        <div class="focus-row">
+          <div class="focus-main"><strong id="progressHeadline">0 % geschafft</strong><p id="progressSubline">Sobald du Kredite anlegst, erscheint hier dein Gesamtfortschritt.</p></div>
+          <span class="badge" id="milestoneBadge">Startklar</span>
+        </div>
+        <div class="progress-wrap"><div class="progress-line"><div id="overallProgressBar"></div></div><div class="progress-caption"><span id="progressLeftCaption">0,00 € Restschuld</span><span id="progressRightCaption">0,00 € getilgt</span></div></div>
+      </div>
+      <div class="toolbar"><button class="primary" id="addLoan">+ Kredit anlegen</button><button class="secondary" id="exportBtn">Sicherung</button></div>
+      <div class="notice" id="syncNotice">Beim Öffnen prüft die App automatisch, welche Monatsraten fällig waren, und zieht sie genau einmal von der Restschuld ab.</div>
+    </section>
+
+    <section class="section" id="loanSection">
+      <div class="section-head"><div><h2>Deine Kredite</h2><div class="section-note">Jeder Kredit mit Fortschritt, Rate und Verlauf</div></div></div>
+      <div id="loanList" class="loan-stack" aria-live="polite"></div>
+    </section>
   </main>
 
-  <dialog id="loanDialog">
-    <div class="dialog-body">
-      <div class="dialog-head"><h3 id="loanDialogTitle">Kredit anlegen</h3><button type="button" class="x" data-close="loanDialog" aria-label="Schließen">✕</button></div>
-      <form id="loanForm">
-        <input type="hidden" id="loanId" />
-        <div class="field"><label for="name">Name</label><input id="name" required maxlength="60" placeholder="z. B. Autokredit" /></div>
-        <div class="row">
-          <div class="field"><label for="original">Kreditsumme (€)</label><input id="original" type="number" min="0.01" step="0.01" inputmode="decimal" required /></div>
-          <div class="field"><label for="balance">Aktuelle Restschuld (€)</label><input id="balance" type="number" min="0" step="0.01" inputmode="decimal" required /></div>
-        </div>
-        <div class="row">
-          <div class="field"><label for="rate">Monatsrate (€)</label><input id="rate" type="number" min="0.01" step="0.01" inputmode="decimal" required /></div>
-          <div class="field"><label for="firstDue">Nächste Rate</label><input id="firstDue" type="date" required /></div>
-        </div>
-        <div class="field"><label for="endDate">Vertragsende / geplantes Ende</label><input id="endDate" type="date" /></div>
-        <div class="help">Zinsen werden hier nicht neu berechnet. Die App führt deine eingegebene Restschuld fort und zieht Rate sowie Sonderzahlungen davon ab.</div>
-        <div class="form-actions"><button type="button" class="secondary" data-close="loanDialog">Abbrechen</button><button class="primary" type="submit">Speichern</button></div>
-      </form>
-    </div>
-  </dialog>
-
-  <dialog id="specialDialog">
-    <div class="dialog-body">
-      <div class="dialog-head"><h3>Sonderzahlung</h3><button type="button" class="x" data-close="specialDialog" aria-label="Schließen">✕</button></div>
-      <form id="specialForm">
-        <input type="hidden" id="specialLoanId" />
-        <div class="field"><label for="specialAmount">Betrag (€)</label><input id="specialAmount" type="number" min="0.01" step="0.01" inputmode="decimal" required /></div>
-        <div class="field"><label for="specialDate">Datum</label><input id="specialDate" type="date" required /></div>
-        <div class="field"><label for="specialNote">Notiz (optional)</label><input id="specialNote" maxlength="80" placeholder="z. B. Weihnachtsgeld" /></div>
-        <div class="form-actions"><button type="button" class="secondary" data-close="specialDialog">Abbrechen</button><button class="primary" type="submit">Eintragen</button></div>
-      </form>
-    </div>
-  </dialog>
-
-  <dialog id="historyDialog">
-    <div class="dialog-body">
-      <div class="dialog-head"><h3 id="historyTitle">Verlauf</h3><button type="button" class="x" data-close="historyDialog" aria-label="Schließen">✕</button></div>
-      <div id="historyContent"></div>
-    </div>
-  </dialog>
-
-  <dialog id="backupDialog">
-    <div class="dialog-body">
-      <div class="dialog-head"><h3>Sicherung</h3><button type="button" class="x" data-close="backupDialog" aria-label="Schließen">✕</button></div>
-      <p class="help">Export lädt eine JSON-Datei mit deinen Daten herunter. Beim Import werden die aktuellen Daten ersetzt.</p>
-      <div class="form-actions"><button class="secondary" type="button" id="importBtn">Importieren</button><button class="primary" type="button" id="downloadBtn">Exportieren</button></div>
-      <input id="importFile" type="file" accept="application/json,.json" hidden />
-    </div>
-  </dialog>
+  <dialog id="loanDialog"><div class="dialog-body"><div class="dialog-head"><h3 id="loanDialogTitle">Kredit anlegen</h3><button type="button" class="x" data-close="loanDialog" aria-label="Schließen">✕</button></div><form id="loanForm"><input type="hidden" id="loanId" /><div class="field"><label for="name">Name</label><input id="name" required maxlength="60" placeholder="z. B. Autokredit" /></div><div class="row"><div class="field"><label for="original">Kreditsumme (€)</label><input id="original" type="number" min="0.01" step="0.01" inputmode="decimal" required /></div><div class="field"><label for="balance">Aktuelle Restschuld (€)</label><input id="balance" type="number" min="0" step="0.01" inputmode="decimal" required /></div></div><div class="row"><div class="field"><label for="rate">Monatsrate (€)</label><input id="rate" type="number" min="0.01" step="0.01" inputmode="decimal" required /></div><div class="field"><label for="firstDue">Nächste Rate</label><input id="firstDue" type="date" required /></div></div><div class="field"><label for="endDate">Vertragsende / geplantes Ende</label><input id="endDate" type="date" /></div><div class="help">Zinsen werden hier nicht neu berechnet. Die App führt deine eingegebene Restschuld fort und zieht Rate sowie Sonderzahlungen davon ab.</div><div class="form-actions"><button type="button" class="secondary" data-close="loanDialog">Abbrechen</button><button class="primary" type="submit">Speichern</button></div></form></div></dialog>
+  <dialog id="specialDialog"><div class="dialog-body"><div class="dialog-head"><h3>Sonderzahlung</h3><button type="button" class="x" data-close="specialDialog" aria-label="Schließen">✕</button></div><form id="specialForm"><input type="hidden" id="specialLoanId" /><div class="field"><label for="specialAmount">Betrag (€)</label><input id="specialAmount" type="number" min="0.01" step="0.01" inputmode="decimal" required /></div><div class="field"><label for="specialDate">Datum</label><input id="specialDate" type="date" required /></div><div class="field"><label for="specialNote">Notiz (optional)</label><input id="specialNote" maxlength="80" placeholder="z. B. Bonuszahlung" /></div><div class="form-actions"><button type="button" class="secondary" data-close="specialDialog">Abbrechen</button><button class="primary" type="submit">Eintragen</button></div></form></div></dialog>
+  <dialog id="historyDialog"><div class="dialog-body"><div class="dialog-head"><h3 id="historyTitle">Verlauf</h3><button type="button" class="x" data-close="historyDialog" aria-label="Schließen">✕</button></div><div id="historyContent"></div></div></dialog>
+  <dialog id="backupDialog"><div class="dialog-body"><div class="dialog-head"><h3>Sicherung</h3><button type="button" class="x" data-close="backupDialog" aria-label="Schließen">✕</button></div><p class="help">Export lädt eine JSON-Datei mit deinen Daten herunter. Beim Import werden die aktuellen Daten ersetzt.</p><div class="form-actions"><button class="secondary" type="button" id="importBtn">Importieren</button><button class="primary" type="button" id="downloadBtn">Exportieren</button></div><input id="importFile" type="file" accept="application/json,.json" hidden /></div></dialog>
 
 <script>
 (() => {
   'use strict';
-  const KEY = 'kreditplaner_v1';
-  const $ = (s) => document.querySelector(s);
-  const euro = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
-  const dateFmt = new Intl.DateTimeFormat('de-DE');
-
-  function ymdToday(){ const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
-  function parseYMD(s){ if(!/^\d{4}-\d{2}-\d{2}$/.test(s||'')) return null; const [y,m,d]=s.split('-').map(Number); return new Date(Date.UTC(y,m-1,d)); }
-  function fmtDate(s){ const d=parseYMD(s); return d ? dateFmt.format(d) : '—'; }
-  function addMonthsYMD(s,n){ const d=parseYMD(s); if(!d) return s; const day=d.getUTCDate(); const target=new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth()+n, 1)); const last=new Date(Date.UTC(target.getUTCFullYear(),target.getUTCMonth()+1,0)).getUTCDate(); target.setUTCDate(Math.min(day,last)); return `${target.getUTCFullYear()}-${String(target.getUTCMonth()+1).padStart(2,'0')}-${String(target.getUTCDate()).padStart(2,'0')}`; }
-  function cmpYMD(a,b){ return String(a).localeCompare(String(b)); }
-  function cleanMoney(v){ const n=Number(v); return Number.isFinite(n) ? Math.max(0, Math.round(n*100)/100) : 0; }
-  function uid(){ return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`; }
-  function esc(s){ return String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
-
-  function load(){
-    try { const x=JSON.parse(localStorage.getItem(KEY)); return x && Array.isArray(x.loans) ? x : {loans:[]}; }
-    catch { return {loans:[]}; }
-  }
-  function save(){ localStorage.setItem(KEY, JSON.stringify(state)); }
-  let state=load();
+  const KEY='kreditplaner_v1';
+  const $=s=>document.querySelector(s);
+  const euro=new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'});
+  const dateFmt=new Intl.DateTimeFormat('de-DE');
+  const ymdToday=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+  const parseYMD=s=>/^\d{4}-\d{2}-\d{2}$/.test(s||'')?new Date(Date.UTC(...s.split('-').map((v,i)=>i===1?Number(v)-1:Number(v)))):null;
+  const fmtDate=s=>{const d=parseYMD(s);return d?dateFmt.format(d):'—'};
+  const cmpYMD=(a,b)=>String(a).localeCompare(String(b));
+  const cleanMoney=v=>{const n=Number(v);return Number.isFinite(n)?Math.max(0,Math.round(n*100)/100):0};
+  const uid=()=>`${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;
+  const esc=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  function addMonthsYMD(s,n){const d=parseYMD(s);if(!d)return s;const day=d.getUTCDate();const t=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+n,1));const last=new Date(Date.UTC(t.getUTCFullYear(),t.getUTCMonth()+1,0)).getUTCDate();t.setUTCDate(Math.min(day,last));return `${t.getUTCFullYear()}-${String(t.getUTCMonth()+1).padStart(2,'0')}-${String(t.getUTCDate()).padStart(2,'0')}`}
+  function load(){try{const x=JSON.parse(localStorage.getItem(KEY));return x&&Array.isArray(x.loans)?x:{loans:[]}}catch{return {loans:[]}}}
+  let state=load(); const save=()=>localStorage.setItem(KEY,JSON.stringify(state));
 
   function processDuePayments(){
-    const today=ymdToday(); let count=0; let amount=0;
+    const today=ymdToday(); let count=0, amount=0;
     for(const loan of state.loans){
-      loan.history = Array.isArray(loan.history) ? loan.history : [];
-      loan.nextDue = loan.nextDue || loan.firstDue;
+      loan.history=Array.isArray(loan.history)?loan.history:[]; loan.nextDue=loan.nextDue||loan.firstDue;
       let guard=0;
-      while(loan.balance > 0 && loan.nextDue && cmpYMD(loan.nextDue,today) <= 0 && guard < 1200){
-        const already=loan.history.some(h=>h.type==='rate' && h.dueDate===loan.nextDue);
-        if(!already){
-          const paid=Math.min(cleanMoney(loan.rate), cleanMoney(loan.balance));
-          loan.balance=cleanMoney(loan.balance-paid);
-          loan.history.push({id:uid(),type:'rate',amount:paid,date:loan.nextDue,dueDate:loan.nextDue,note:'Automatische Monatsrate'});
-          count++; amount+=paid;
-        }
-        loan.nextDue=addMonthsYMD(loan.nextDue,1); guard++;
+      while(cleanMoney(loan.balance)>0&&loan.nextDue&&cmpYMD(loan.nextDue,today)<=0&&guard<1200){
+        const exists=loan.history.some(h=>h.type==='rate'&&h.dueDate===loan.nextDue);
+        if(!exists){const paid=Math.min(cleanMoney(loan.rate),cleanMoney(loan.balance));loan.balance=cleanMoney(loan.balance-paid);loan.history.push({id:uid(),type:'rate',amount:paid,date:loan.nextDue,dueDate:loan.nextDue,note:'Automatische Monatsrate'});count++;amount+=paid}
+        loan.nextDue=addMonthsYMD(loan.nextDue,1);guard++;
       }
     }
-    if(count){ save(); $('#syncNotice').textContent=`${count} fällige Monatsrate${count===1?'':'n'} (${euro.format(amount)}) wurden automatisch verbucht.`; }
+    if(count){save();$('#syncNotice').textContent=`${count} fällige Monatsrate${count===1?'':'n'} (${euro.format(amount)}) wurden automatisch verbucht.`}
   }
 
-  function projectedEnd(loan){
-    if(loan.balance<=0) return 'Abbezahlt';
-    if(loan.rate<=0 || !loan.nextDue) return '—';
-    const months=Math.ceil(loan.balance/loan.rate);
-    return fmtDate(addMonthsYMD(loan.nextDue, Math.max(0,months-1)));
-  }
-
-  function render(){
-    state.loans.sort((a,b)=>a.name.localeCompare(b.name,'de'));
+  function projectedEnd(loan){if(cleanMoney(loan.balance)<=0)return null;if(cleanMoney(loan.rate)<=0||!loan.nextDue)return null;return addMonthsYMD(loan.nextDue,Math.max(0,Math.ceil(cleanMoney(loan.balance)/cleanMoney(loan.rate))-1))}
+  function overview(){
+    const active=state.loans.filter(l=>cleanMoney(l.balance)>0);
+    const totalOriginal=state.loans.reduce((s,l)=>s+Math.max(cleanMoney(l.original),0),0);
     const totalBalance=state.loans.reduce((s,l)=>s+cleanMoney(l.balance),0);
-    const totalMonthly=state.loans.filter(l=>l.balance>0).reduce((s,l)=>s+cleanMoney(l.rate),0);
-    $('#totalBalance').textContent=euro.format(totalBalance);
-    $('#totalMonthly').textContent=euro.format(totalMonthly);
+    const totalPaid=Math.max(0,totalOriginal-totalBalance);
+    const totalMonthly=active.reduce((s,l)=>s+cleanMoney(l.rate),0);
+    const percent=totalOriginal>0?Math.max(0,Math.min(100,totalPaid/totalOriginal*100)):0;
+    const nextDueLoan=active.filter(l=>l.nextDue).sort((a,b)=>cmpYMD(a.nextDue,b.nextDue))[0]||null;
+    const ends=active.map(l=>projectedEnd(l)).filter(Boolean).sort(cmpYMD);
+    return {active,totalOriginal,totalBalance,totalPaid,totalMonthly,percent,nextDueLoan,finalProjectedEnd:ends.length?ends[ends.length-1]:null};
+  }
+  const tone=p=>p>=100?'Abgeschlossen':p>=75?'Ziel in Sicht':p>=40?'Starker Fortschritt':p>0?'Du bist dran':'Startklar';
+
+  function renderOverview(){
+    const o=overview();
+    $('#heroTotalBalance').textContent=euro.format(o.totalBalance);
+    $('#heroDebtFree').textContent=o.finalProjectedEnd?fmtDate(o.finalProjectedEnd):'—';
+    $('#totalBalance').textContent=euro.format(o.totalBalance);
+    $('#totalMonthly').textContent=euro.format(o.totalMonthly);
+    $('#nextDueText').textContent=o.nextDueLoan?fmtDate(o.nextDueLoan.nextDue):'—';
+    $('#nextDueLoan').textContent=o.nextDueLoan?`${o.nextDueLoan.name} · ${euro.format(cleanMoney(o.nextDueLoan.rate))}`:'Kein Kredit fällig';
+    $('#finalEndText').textContent=o.finalProjectedEnd?fmtDate(o.finalProjectedEnd):'—';
+    $('#totalPaidText').textContent=`${euro.format(o.totalPaid)} bereits getilgt`;
+    $('#overallProgressText').textContent=`${o.percent.toFixed(0)} % getilgt`;
+    $('#activeLoansText').textContent=`${o.active.length} aktive Kredite`;
+    $('#overviewBadge').textContent=o.active.length?`${o.active.length} aktiv`:'Alles im Blick';
+    $('#progressHeadline').textContent=o.totalOriginal?`${o.percent.toFixed(0)} % geschafft`:'Noch kein Kredit eingetragen';
+    $('#progressSubline').textContent=o.totalOriginal?`Von ${euro.format(o.totalOriginal)} wurden bereits ${euro.format(o.totalPaid)} getilgt.`:'Sobald du Kredite anlegst, erscheint hier dein Gesamtfortschritt.';
+    $('#milestoneBadge').textContent=tone(o.percent);
+    $('#progressLeftCaption').textContent=`${euro.format(o.totalBalance)} Restschuld`;
+    $('#progressRightCaption').textContent=`${euro.format(o.totalPaid)} getilgt`;
+    $('#overallProgressBar').style.width=`${o.percent.toFixed(2)}%`;
+  }
+
+  function renderLoans(){
+    state.loans.sort((a,b)=>a.name.localeCompare(b.name,'de'));
     const list=$('#loanList');
-    if(!state.loans.length){ list.innerHTML='<div class="empty"><strong>Noch keine Kredite</strong><br><br>Tippe auf „+ Kredit“ und trage deinen ersten Kredit ein.</div>'; return; }
+    if(!state.loans.length){list.innerHTML='<div class="empty"><strong>Noch keine Kredite</strong><br><br>Tippe auf „+ Kredit anlegen“ und erstelle deinen ersten Eintrag.</div>';return}
     list.innerHTML=state.loans.map(l=>{
-      const original=Math.max(cleanMoney(l.original),0.01); const balance=cleanMoney(l.balance); const paid=Math.max(0,original-balance); const pct=Math.min(100,Math.max(0,(paid/original)*100));
-      return `<article class="loan" data-id="${esc(l.id)}">
-        <div class="loan-top"><div><h2>${esc(l.name)}</h2><div class="tiny">${balance<=0?'<span class="green">Abbezahlt</span>':'Nächste Rate: '+esc(fmtDate(l.nextDue))}</div></div><button type="button" class="secondary edit" aria-label="Kredit bearbeiten">Bearbeiten</button></div>
-        <div class="balance">${euro.format(balance)}</div><div class="tiny">von ${euro.format(original)} Restschuld</div>
-        <div class="progress"><div style="width:${pct.toFixed(1)}%"></div></div>
-        <div class="meta"><div><b>Monatsrate</b>${euro.format(cleanMoney(l.rate))}</div><div><b>Geplantes Vertragsende</b>${esc(fmtDate(l.endDate))}</div><div><b>Rechnerisches Ende</b>${esc(projectedEnd(l))}</div><div><b>Getilgt</b>${euro.format(paid)}</div></div>
-        <div class="actions"><button type="button" class="primary special" ${balance<=0?'disabled':''}>+ Sonderzahlung</button><button type="button" class="secondary history">Verlauf</button></div>
-      </article>`;
+      const original=Math.max(cleanMoney(l.original),0.01), balance=cleanMoney(l.balance), paid=Math.max(0,original-balance), pct=Math.min(100,Math.max(0,paid/original*100)), active=balance>0, hist=Array.isArray(l.history)?l.history.length:0, proj=projectedEnd(l);
+      return `<article class="loan" data-id="${esc(l.id)}"><div class="loan-top"><div class="loan-title-wrap"><h3>${esc(l.name)}</h3><div class="loan-sub">${active?`Nächste Rate am ${esc(fmtDate(l.nextDue))}`:'<span class="green">Abbezahlt</span>'}</div></div><button type="button" class="secondary edit">Bearbeiten</button></div><div class="chip-row"><span class="chip">${pct.toFixed(0)} % getilgt</span><span class="chip">${hist} Buchung${hist===1?'':'en'}</span>${l.endDate?`<span class="chip">Vertragsende ${esc(fmtDate(l.endDate))}</span>`:''}</div><div class="loan-balance"><div><strong>${euro.format(balance)}</strong><span class="tiny">Restschuld von ${euro.format(original)}</span></div><span class="badge ${active?'':'good'}">${active?'Aktiv':'Abbezahlt'}</span></div><div class="progress-wrap"><div class="progress-line"><div style="width:${pct.toFixed(2)}%"></div></div><div class="progress-caption"><span>${euro.format(paid)} getilgt</span><span>${euro.format(balance)} offen</span></div></div><div class="loan-grid"><div class="loan-info"><label>Monatsrate</label><strong>${euro.format(cleanMoney(l.rate))}</strong></div><div class="loan-info"><label>Rechnerisches Ende</label><strong>${esc(proj?fmtDate(proj):'—')}</strong></div><div class="loan-info"><label>Geplantes Ende</label><strong>${esc(l.endDate?fmtDate(l.endDate):'—')}</strong></div><div class="loan-info"><label>Getilgt</label><strong>${euro.format(paid)}</strong></div></div><div class="actions"><button type="button" class="primary special" ${active?'':'disabled'}>+ Sonderzahlung</button><button type="button" class="history">Verlauf</button><button type="button" class="secondary edit">Bearbeiten</button></div></article>`;
     }).join('');
   }
+  const render=()=>{renderOverview();renderLoans()};
 
-  function openLoan(id){
-    const l=state.loans.find(x=>x.id===id);
-    $('#loanDialogTitle').textContent=l?'Kredit bearbeiten':'Kredit anlegen';
-    $('#loanId').value=l?.id||''; $('#name').value=l?.name||''; $('#original').value=l?.original??''; $('#balance').value=l?.balance??''; $('#rate').value=l?.rate??''; $('#firstDue').value=l?.nextDue||ymdToday(); $('#endDate').value=l?.endDate||'';
-    $('#loanDialog').showModal();
-  }
-
-  $('#loanForm').addEventListener('submit',e=>{
-    e.preventDefault(); const id=$('#loanId').value;
-    const data={ name:$('#name').value.trim(), original:cleanMoney($('#original').value), balance:cleanMoney($('#balance').value), rate:cleanMoney($('#rate').value), nextDue:$('#firstDue').value, endDate:$('#endDate').value };
-    if(!data.name || data.original<=0 || data.rate<=0 || !data.nextDue){ alert('Bitte Name, Kreditsumme, Monatsrate und nächste Rate korrekt ausfüllen.'); return; }
-    if(data.balance>data.original && !confirm('Die Restschuld ist höher als die ursprüngliche Kreditsumme. Trotzdem speichern?')) return;
-    const old=state.loans.find(x=>x.id===id);
-    if(old){ Object.assign(old,data); }
-    else { state.loans.push({id:uid(),...data,history:[]}); }
-    save(); $('#loanDialog').close(); processDuePayments(); render();
-  });
-
-  $('#loanList').addEventListener('click',e=>{
-    const card=e.target.closest('.loan'); if(!card) return; const id=card.dataset.id;
-    if(e.target.closest('.edit')) openLoan(id);
-    if(e.target.closest('.special')){ $('#specialLoanId').value=id; $('#specialAmount').value=''; $('#specialDate').value=ymdToday(); $('#specialNote').value=''; $('#specialDialog').showModal(); }
-    if(e.target.closest('.history')) showHistory(id);
-  });
-
-  $('#specialForm').addEventListener('submit',e=>{
-    e.preventDefault(); const l=state.loans.find(x=>x.id===$('#specialLoanId').value); if(!l) return;
-    const amount=Math.min(cleanMoney($('#specialAmount').value), cleanMoney(l.balance)); if(amount<=0){ alert('Bitte einen gültigen Betrag eingeben.'); return; }
-    l.balance=cleanMoney(l.balance-amount); l.history=l.history||[]; l.history.push({id:uid(),type:'special',amount,date:$('#specialDate').value||ymdToday(),note:$('#specialNote').value.trim()||'Sonderzahlung'});
-    save(); $('#specialDialog').close(); render();
-  });
-
-  function showHistory(id){
-    const l=state.loans.find(x=>x.id===id); if(!l) return; $('#historyTitle').textContent=`Verlauf · ${l.name}`;
-    const hist=[...(l.history||[])].sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-    $('#historyContent').innerHTML=hist.length?`<div class="history">${hist.map(h=>`<div class="hist"><div><div class="kind">${h.type==='rate'?'Monatsrate':'Sonderzahlung'}</div><div class="date">${esc(fmtDate(h.date))} · ${esc(h.note||'')}</div></div><strong>− ${euro.format(cleanMoney(h.amount))}</strong></div>`).join('')}</div>`:'<div class="empty">Noch keine Buchungen.</div>';
-    const del=document.createElement('button'); del.type='button'; del.className='danger'; del.style.cssText='width:100%;margin-top:14px'; del.textContent='Kredit löschen'; del.addEventListener('click',()=>{ if(confirm(`„${l.name}“ wirklich löschen?`)){ state.loans=state.loans.filter(x=>x.id!==id); save(); $('#historyDialog').close(); render(); }}); $('#historyContent').appendChild(del); $('#historyDialog').showModal();
-  }
-
-  $('#addLoan').addEventListener('click',()=>openLoan());
-  document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.close).close()));
-  $('#exportBtn').addEventListener('click',()=>$('#backupDialog').showModal());
-  $('#downloadBtn').addEventListener('click',()=>{
-    const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`kreditplaner-sicherung-${ymdToday()}.json`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-  });
-  $('#importBtn').addEventListener('click',()=>$('#importFile').click());
-  $('#importFile').addEventListener('change',async e=>{
-    const f=e.target.files?.[0]; if(!f) return; try{ const x=JSON.parse(await f.text()); if(!x||!Array.isArray(x.loans)) throw new Error(); if(!confirm('Aktuelle Daten durch die Sicherung ersetzen?')) return; state=x; save(); $('#backupDialog').close(); processDuePayments(); render(); }catch{ alert('Die Datei ist keine gültige Kreditplaner-Sicherung.'); } finally { e.target.value=''; }
-  });
-
-  $('#today').textContent=dateFmt.format(new Date()); processDuePayments(); render();
-  if('serviceWorker' in navigator && location.protocol.startsWith('http')) { navigator.serviceWorker.register('./sw.js').then(r=>r.update()).catch(()=>{}); }
+  function openLoan(id){const l=state.loans.find(x=>x.id===id);$('#loanDialogTitle').textContent=l?'Kredit bearbeiten':'Kredit anlegen';$('#loanId').value=l?.id||'';$('#name').value=l?.name||'';$('#original').value=l?.original??'';$('#balance').value=l?.balance??'';$('#rate').value=l?.rate??'';$('#firstDue').value=l?.nextDue||ymdToday();$('#endDate').value=l?.endDate||'';$('#loanDialog').showModal()}
+  $('#loanForm').addEventListener('submit',e=>{e.preventDefault();const id=$('#loanId').value;const data={name:$('#name').value.trim(),original:cleanMoney($('#original').value),balance:cleanMoney($('#balance').value),rate:cleanMoney($('#rate').value),nextDue:$('#firstDue').value,endDate:$('#endDate').value};if(!data.name||data.original<=0||data.rate<=0||!data.nextDue){alert('Bitte Name, Kreditsumme, Monatsrate und nächste Rate korrekt ausfüllen.');return}if(data.balance>data.original&&!confirm('Die Restschuld ist höher als die ursprüngliche Kreditsumme. Trotzdem speichern?'))return;const old=state.loans.find(x=>x.id===id);if(old)Object.assign(old,data);else state.loans.push({id:uid(),...data,history:[]});save();$('#loanDialog').close();processDuePayments();render()});
+  $('#loanList').addEventListener('click',e=>{const card=e.target.closest('.loan');if(!card)return;const id=card.dataset.id;if(e.target.closest('.edit'))openLoan(id);if(e.target.closest('.special')){$('#specialLoanId').value=id;$('#specialAmount').value='';$('#specialDate').value=ymdToday();$('#specialNote').value='';$('#specialDialog').showModal()}if(e.target.closest('.history'))showHistory(id)});
+  $('#specialForm').addEventListener('submit',e=>{e.preventDefault();const l=state.loans.find(x=>x.id===$('#specialLoanId').value);if(!l)return;const amount=Math.min(cleanMoney($('#specialAmount').value),cleanMoney(l.balance));if(amount<=0){alert('Bitte einen gültigen Betrag eingeben.');return}l.balance=cleanMoney(l.balance-amount);l.history=l.history||[];l.history.push({id:uid(),type:'special',amount,date:$('#specialDate').value||ymdToday(),note:$('#specialNote').value.trim()||'Sonderzahlung'});save();$('#specialDialog').close();render()});
+  function showHistory(id){const l=state.loans.find(x=>x.id===id);if(!l)return;$('#historyTitle').textContent=`Verlauf · ${l.name}`;const hist=[...(l.history||[])].sort((a,b)=>String(b.date).localeCompare(String(a.date)));$('#historyContent').innerHTML=hist.length?`<div class="history">${hist.map(h=>`<div class="hist"><div><div class="kind">${h.type==='rate'?'Monatsrate':'Sonderzahlung'}</div><div class="date">${esc(fmtDate(h.date))} · ${esc(h.note||'')}</div></div><strong>− ${euro.format(cleanMoney(h.amount))}</strong></div>`).join('')}</div>`:'<div class="empty">Noch keine Buchungen.</div>';const del=document.createElement('button');del.type='button';del.className='danger';del.style.cssText='width:100%;margin-top:14px';del.textContent='Kredit löschen';del.addEventListener('click',()=>{if(confirm(`„${l.name}“ wirklich löschen?`)){state.loans=state.loans.filter(x=>x.id!==id);save();$('#historyDialog').close();render()}});$('#historyContent').appendChild(del);$('#historyDialog').showModal()}
+  $('#addLoan').addEventListener('click',()=>openLoan()); document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.close).close()));
+  $('#exportBtn').addEventListener('click',()=>$('#backupDialog').showModal()); $('#downloadBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`kreditplaner-sicherung-${ymdToday()}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
+  $('#importBtn').addEventListener('click',()=>$('#importFile').click()); $('#importFile').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!x||!Array.isArray(x.loans))throw new Error();if(!confirm('Aktuelle Daten durch die Sicherung ersetzen?'))return;state=x;save();$('#backupDialog').close();processDuePayments();render()}catch{alert('Die Datei ist keine gültige Kreditplaner-Sicherung.')}finally{e.target.value=''}});
+  document.querySelectorAll('[data-scroll]').forEach(btn=>btn.addEventListener('click',()=>{const t=document.getElementById(btn.dataset.scroll);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}));
+  $('#today').textContent=dateFmt.format(new Date()); processDuePayments(); render(); if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./sw.js').then(r=>r.update()).catch(()=>{});
 })();
 </script>
 </body>
