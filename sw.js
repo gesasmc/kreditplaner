@@ -1,4 +1,4 @@
-const CACHE = 'kreditplaner-v3';
+const CACHE = 'kreditplaner-v5';
 const APP_SHELL = [
   './',
   './index.html',
@@ -45,7 +45,7 @@ self.addEventListener('fetch', event => {
           caches.open(CACHE).then(cache => cache.put(event.request, copy));
         }
         return response;
-      });
+      }).catch(() => caches.match('./index.html'));
     })
   );
 });
