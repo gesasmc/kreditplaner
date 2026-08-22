@@ -1,11 +1,9 @@
-const CACHE = 'kreditplaner-v2';
+const CACHE = 'kreditplaner-v3';
 const APP_SHELL = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './icon.svg',
-  './icon-192.png',
-  './icon-512.png'
+  './icon.svg'
 ];
 
 self.addEventListener('install', event => {
