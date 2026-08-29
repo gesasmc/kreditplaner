@@ -36,3 +36,15 @@ function renderShared(){var root=q('#sharedRoot');if(!root)return;var code=local
 function bind(){ensurePrivateStartAmount();var tabs=qa('.tab'),i;for(i=0;i<tabs.length;i++){tabs[i].onclick=function(e){if(e)e.preventDefault();showPage(this.getAttribute('data-page'),this);return false}}var adds=qa('[data-action="add"]');for(i=0;i<adds.length;i++){adds[i].onclick=function(e){if(e)e.preventDefault();openLoan('');return false}}var backs=qa('[data-action="backup"]');for(i=0;i<backs.length;i++){backs[i].onclick=function(e){if(e)e.preventDefault();openBackup();return false}}var closes=qa('[data-close]');for(i=0;i<closes.length;i++){closes[i].onclick=function(e){if(e)e.preventDefault();closeModal(this);return false}}var list=q('#loanList');if(list)list.onclick=function(e){e=e||window.event;var t=e.target||e.srcElement,card=t;while(card&&card!==list&&!(card.classList&&card.classList.contains('loan')))card=card.parentNode;if(!card||card===list)return;var id=card.getAttribute('data-id');if(t.hasAttribute('data-edit'))openLoan(id);else if(t.hasAttribute('data-special')){q('#spId').value=id;q('#spAmt').value='';q('#spDate').value=today();q('#specialModal').classList.add('on')}};var ver=q('.version');if(ver)ver.textContent='Kredit App · v30';document.addEventListener('click',function(e){var t=e.target;if(t&&t.id==='saveLoan'){e.preventDefault();e.stopPropagation();if(e.stopImmediatePropagation)e.stopImmediatePropagation();saveLoan()}},true)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
 })();
+(function(){
+'use strict';
+function addFinanzMenu(){
+ var app=document.querySelector('main.app');if(!app||document.getElementById('finanzAppSwitch'))return;
+ var st=document.createElement('style');st.textContent='.finanzAppSwitch{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 14px}.finanzAppSwitch a{display:flex;align-items:center;justify-content:center;min-height:46px;border:1px solid var(--l);border-radius:15px;background:var(--c);color:var(--t);text-decoration:none;font-weight:800}.finanzAppSwitch a.on{border:0;color:#fff;background:linear-gradient(135deg,var(--a),var(--a2))}';document.head.appendChild(st);
+ var nav=document.createElement('nav');nav.id='finanzAppSwitch';nav.className='finanzAppSwitch';nav.innerHTML='<a class="on" href="./">💳 Kredite</a><a href="versicherung.html">🛡️ Versicherungen</a>';
+ app.insertBefore(nav,app.firstChild);
+ document.title='Finanzplaner – Kredite';
+ var ver=document.querySelector('.version');if(ver)ver.textContent='Finanzplaner · v31';
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addFinanzMenu);else addFinanzMenu();
+})();
