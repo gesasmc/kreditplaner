@@ -3,7 +3,7 @@
   "name": "Finanzplaner",
   "short_name": "Finanzen",
   "description": "Finanzplaner für Kredite, Versicherungen und Abos mit privaten und gemeinsamen Bereichen.",
-  "start_url": "./",
+  "start_url": "./?v=36.2",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
