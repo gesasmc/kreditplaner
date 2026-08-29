@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Kreditplaner",
-  "short_name": "Kredite",
-  "description": "Privater Kreditplaner mit Raten, Laufzeiten, Sonderzahlungen und schöner Übersicht.",
+  "name": "Finanzplaner",
+  "short_name": "Finanzen",
+  "description": "Finanzplaner für Kredite und Versicherungen mit privaten und gemeinsamen Bereichen.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
